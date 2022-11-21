@@ -1,16 +1,25 @@
 package com.lms.domain;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
+@Table(name = "t_loan")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Loan {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -28,8 +37,7 @@ public class Loan {
     @Column
     private LocalDateTime returnDate;
 
-    @Column
-    @Size(max = 300)
+    @Column(length = 300)
     private String notes;
 
 }
