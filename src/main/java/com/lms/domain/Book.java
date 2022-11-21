@@ -21,7 +21,6 @@ import java.time.LocalDateTime;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     @Column(length =80, nullable = false)
     private String name;
@@ -40,7 +39,6 @@ public class Book {
     private Boolean featured;
     private LocalDateTime createDate;
     private Boolean builtIn;
-
-
+    //TODO EKSİK KALDI
 }
 
