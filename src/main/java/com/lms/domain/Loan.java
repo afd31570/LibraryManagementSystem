@@ -9,13 +9,13 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
-@Entity
-@Table(name = "t_loan")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
+@Entity
+@Table(name = "t_loan")
 public class Loan {
 
     @Id
@@ -38,6 +38,6 @@ public class Loan {
     private LocalDateTime returnDate;
 
     @Column(length = 300)
-    private String notes;
+    private String notes;//Notes for employee or admin
 
 }
