@@ -17,8 +17,11 @@ public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(length = 50, nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private Boolean builtIn=false;
 
 

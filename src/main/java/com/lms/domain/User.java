@@ -11,8 +11,11 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="t_users")
@@ -26,30 +29,27 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @Length(min = 2, max = 30)
+    @Column(nullable = false, length= 30)
+
     private String firstName;
 
-    @Column(nullable = false)
-    @Length(min = 2, max = 30)
+    @Column(nullable = false,length= 30)
     private String lastName;
 
     @Column(nullable = false)
     @Size(min = -2, max = +2)
     private Integer score = 0;
 
-    @Column(nullable = false)
-    @Length(min = 10, max = 100)
+    @Column(nullable = false,length= 100)
     private String address;
 
     @Column(length = 14, nullable = false)
     private String phone;
 
     @Column
-    private Date birthDate;
+    private LocalDate birthDate;
 
-    @Column(nullable = false)
-    @Length(min = 10, max = 80)
+    @Column(nullable = false,length= 80)
     @Email
     private String email;
 
@@ -64,4 +64,8 @@ public class User {
 
     @NotNull
     private Boolean builtIn = false;
+
+    @ManyToMany
+    @JoinTable(name="t_user_role",joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="role_id"))
+    private Set<Role> roles=new HashSet<>();
 }
