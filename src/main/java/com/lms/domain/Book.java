@@ -4,11 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.ISBN;
-import org.springframework.boot.context.properties.bind.Name;
+
 
 import javax.persistence.*;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.time.LocalDateTime;
 
 @Entity
@@ -32,9 +30,8 @@ public class Book {
     @Column
     private int pageCount;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "author_id")
-
     private Author authorId;
 
     @ManyToOne
