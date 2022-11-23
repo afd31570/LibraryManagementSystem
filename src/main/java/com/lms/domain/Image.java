@@ -34,4 +34,9 @@ public class Image {
     public Image(String id) {
         this.id = id;
     }
+
+    public Image(String name, byte[] image) {
+        this.name = name;
+        this.image = image;
+    }
 }
